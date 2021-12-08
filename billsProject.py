@@ -20,16 +20,27 @@ print (" This program is designed to have each user end up paying the same amoun
 user1Name = str(input(" What is person 1's name? "))
 # user2Name = str(input(" What is person 2's name? "))
 
+def roundOneYesNoErrorCheck(userInput, userName):
+    while userInput != 'y' and userInput != 'Y' and userInput != 'n' and userInput != 'N': # while input is a valid character
+        print ("********** ERROR **********") # display error message if input is not a valid character
+        print (" The character can only be y or n ")
+        userInput = str(input(" Would you like to enter bills for " + userName + "? y/n "))
+    return userInput
+
+def againYesNoErrorCheck(userInput, userName):
+    while userInput != 'y' and userInput != 'Y' and userInput != 'n' and userInput != 'N': # while input is a valid character
+            print ("********** ERROR **********") # display error message if input is not a valid character
+            print (" The character can only be y or n ")
+            userInput = str(input(" Would you like to enter another bill for " + userName + "? y/n "))
+    return userInput
+
 #this method gets bill names and amounts from user and stores them in arrays
 def getBills(userName, userAmount, userBills):
     index = 0
     count = 0
     userContinue = str(input(" Would you like to enter bills for " + userName + "? y/n "))
 
-    while userContinue != 'y' and userContinue != 'Y' and userContinue != 'n' and userContinue != 'N': # while input is a valid character
-        print ("********** ERROR **********") # display error message if input is not a valid character
-        print (" The character can only be y or n ")
-        userContinue = str(input(" Would you like to enter bills for " + userName + "? y/n "))
+    userContinue = roundOneYesNoErrorCheck(userContinue, user1Name) # check to see if input was a valid character
 
     while userContinue == 'y' or userContinue == 'Y':
         if count == 0: # first prompt for bill input
@@ -41,6 +52,9 @@ def getBills(userName, userAmount, userBills):
             index += 1
         if count > 0 and count < 10:
            userContinue = input(str (" Would you like to enter another bill for %s? y/n" % (userName)))
+
+        userContinue = againYesNoErrorCheck(userContinue, user1Name) # check to see if input was a valid character
+
         if userContinue == 'n' or userContinue == 'N': # if user selected to not continue
             break 
         userBills[index] = str(input(" What is the name of the bill you want to add for " + userName + "? "))
@@ -57,5 +71,6 @@ getBills(user1Name, user1Amounts, user1Bills) # method call for user1 bills and 
 i = 0
 emptyValue = 0.
 while user1Amounts[i] != emptyValue:
-    print (" %s : $%f " % (user1Bills[i], user1Amounts[i]))
+    moneyFormat = str(round(user1Amounts[i], 2))
+    print (" %s : $%s " % (user1Bills[i], moneyFormat))
     i += 1
