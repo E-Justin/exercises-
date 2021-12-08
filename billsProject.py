@@ -24,6 +24,18 @@ def verifyAndGetName():
             break
     return userInput
 
+
+def verifyAndGetBillName(userName):
+    userInput = str(input(" What is the name of the bill you want to add for " + userName + "? "))
+    while userInput.isalpha() == False: # if userInput is a string
+        print ("***** ERROR ***** ")
+        print (" Please enter a bill name (with letters) ")
+        userInput = str(input(" What is the name of the bill you want to add for " + userName + "?  "))
+        if userInput.isalpha == True: 
+            break
+    return userInput
+
+
 print (now) # displays the current date/ time
 print (" This program will have each user input their bills and amounts ")
 print (" This program is designed to have each user end up paying the same amount (50% - 50%) ")
@@ -55,7 +67,7 @@ def getBills(userName, userAmount, userBills):
 
     while userContinue == 'y' or userContinue == 'Y':
         if count == 0: # first prompt for bill input
-            userBills[index] = str(input(" What is the name of the bill you want to add for " + userName + "? "))
+            userBills[index] = verifyAndGetBillName(userName)
             userAmount[index] = float(input(" What is the amount that " + userName + " paid for " + userBills[index] + "? "))
             # print (" %s paid $ %f for %s " % (userName, userAmount[index], userBills[index]))      this works, but prints out extra decimal values
             print(userName + " paid $" + str(round(userAmount[index], 2)) + " for " + str(userBills[index])) # prints output in the correct $ format
