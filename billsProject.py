@@ -13,11 +13,22 @@ user1Bills = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '] # array to hold 
 user2Amounts= [0., 0., 0., 0., 0., 0., 0., 0., 0., 0.] # array to hold user1's bill amounts   max of 10 bills
 user2Bills = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '] # array to hold string labeling what bill was paid  max of 10 bills
 
+#method verifies that input is a string and returns the value if so
+def verifyAndGetName():
+    userInput = str(input(" What is person 1's name? "))
+    while userInput.isalpha() == False: # if userInput is a string
+        print ("***** ERROR ***** ")
+        print (" Please enter a name (with letters) ")
+        userInput = str(input(" What is person 1's name? "))
+        if userInput.isalpha == True: 
+            break
+    return userInput
+
 print (now) # displays the current date/ time
 print (" This program will have each user input their bills and amounts ")
 print (" This program is designed to have each user end up paying the same amount (50% - 50%) ")
 
-user1Name = str(input(" What is person 1's name? "))
+user1Name = verifyAndGetName()
 # user2Name = str(input(" What is person 2's name? "))
 
 def roundOneYesNoErrorCheck(userInput, userName):
