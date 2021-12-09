@@ -121,9 +121,18 @@ else:
     amountOwed = 0
     print (" Each person paid the same amount in bills this month ")
 
-# i = 0
-#emptyValue = 0.
-#while user1Amounts[i] != emptyValue:
-    #moneyFormat = str(round(user1Amounts[i], 2))
-    #print (" %s : $%s " % (user1Bills[i], moneyFormat))
-    #i += 1
+def writeDataToFile(userName, userBills, userAmounts):
+    file = open ("pythonDataFile.txt", "a+") # open for appending / creates file if it does not exist
+    i = 0
+    emptyValue = 0.
+    file.write("%s's bills for this month \n" % userName)
+    file.write("Time/ Date : %s \n" % now)
+    while user1Amounts[i] != emptyValue and i < len(userBills):
+        moneyFormat = str(round(user1Amounts[i], 2))
+        file.writelines ("%s : $%s \n" % (user1Bills[i], moneyFormat))   
+        i += 1
+    file.write("\n")
+    file.close()
+
+writeDataToFile(user1Name, user1Bills, user1Amounts)
+writeDataToFile(user2Name, user2Bills, user2Amounts)
