@@ -1,4 +1,4 @@
-# need to remove duplicate values
+# task: remove duplicate values
 
 nums = [12, 15, 9, 12, 13, 21, 15, 72, 12]
 
@@ -12,20 +12,23 @@ while i < length:
     print (nums[i]) # print elements in array one at a time
     i += 1
     
-i = 0
+def removeDuplicates(nums):
+    i = 0
+    j = 1
+    while i < len(nums) and j < len(nums) :
+        while nums[i] == nums[j]: # if duplicate value is found
+            toDelete = nums[j]
+            print (" Deleting %d " % toDelete)
+            nums.remove(toDelete) # remove duplicate value (indexes of all values decrease by 1 when .remove() is used)
+            j = 1
+            i = 0
+        if j == len(nums) - 1: # if j has reached the end of the array
+            i += 1
+            j = i + 1
+        j += 1
+    return nums
 
-while i < len(nums) and j < len(nums) :
-    while nums[i] == nums[j]: # if duplicate value is found
-        toDelete = nums[j]
-        print (" Deleting %d " % toDelete)
-        nums.remove(toDelete) # remove duplicate value (indexes of all values decrease by 1 when .remove() is used)
-        j = 1
-        i = 0
-    if j == len(nums) - 1: # if j has reached the end of the array
-        i += 1
-        j = i + 1
-    j += 1
-
+removeDuplicates(nums)
 
 i = 0
 length = len(nums) # get new length
