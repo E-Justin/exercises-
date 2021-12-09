@@ -111,34 +111,35 @@ print("\n")
 
 def whoOwesWho(user1Name, user2Name, user1total, user2total):
     file = open ("pythonDataFile.txt", "a+") # open for appending / creates file if it does not exist
-
+    file.write("\n")
     if user1total > user2total: # if user1 paid more in bills
         difference = user1total - user2total
         amountOwed = difference / 2
-        file.write ("%s owes %s $%d \n" % (user2Name, user1Name, amountOwed))
+        file.write ("%s owes %s $%s \n" % (user2Name, user1Name, str(round(amountOwed, 2))))
     if user1total < user2total: # if user2 paid more in bills
         difference = user2total - user1total
         amountOwed = difference / 2
-        file.write ("%s owes %s $%d \n" % (user1Name, user2Name, amountOwed))
-    else:
+        file.write ("%s owes %s $%s \n" % (user1Name, user2Name, str(round(amountOwed, 2))))
+    if user1total == user2total:
         amountOwed = 0
         file.write ("Each person paid the same amount in bills this month \n")
     file.close()
 
-def writeDataToFile(userName, userBills, userAmounts):
+def writeDataToFile(userName, userBills, userAmounts, userTotal):
     file = open ("pythonDataFile.txt", "a+") # open for appending / creates file if it does not exist
+    file.write("\n")
     i = 0
     emptyValue = 0.
     file.write("********** %s's bills for this month **********\n" % userName)
     file.write("Time/ Date : %s \n" % now)
-    while user1Amounts[i] != emptyValue and i < len(userBills):
-        moneyFormat = str(round(user1Amounts[i], 2))
-        file.writelines ("%s : $%s \n" % (user1Bills[i], moneyFormat))   
+    while userAmounts[i] != emptyValue and i < len(userBills):
+        moneyFormat = str(round(userAmounts[i], 2))
+        file.writelines ("%s : $%s \n" % (userBills[i], moneyFormat))   
         i += 1
-   
+    file.write("%s's total amount paid : $%s " % (userName, str(round(userTotal, 2))))
     file.write("\n")
     file.close()
 
-writeDataToFile(user1Name, user1Bills, user1Amounts)
-writeDataToFile(user2Name, user2Bills, user2Amounts)
+writeDataToFile(user1Name, user1Bills, user1Amounts, user1total)
+writeDataToFile(user2Name, user2Bills, user2Amounts, user2total)
 whoOwesWho(user1Name, user2Name, user1total, user2total)
