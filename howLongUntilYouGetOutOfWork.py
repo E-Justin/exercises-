@@ -1,4 +1,4 @@
-# this program will countdown until you get off work/ school today
+# this program will countdown until you get off work/ school
 
 from datetime import datetime
 
@@ -31,7 +31,7 @@ if amOrPm == '2':
 
 def todayCountDown(thenHour, thenMinute):
     secondsUntil = 60 - currentSecond # get seconds until
-
+    hoursUntil = 0
     if (thenMinute > currentMinute):  # get minutes until
         minutesUntil = thenMinute - currentSecond
     if (thenMinute == currentMinute):
@@ -40,7 +40,7 @@ def todayCountDown(thenHour, thenMinute):
         hoursUntil = -1
         minutesUntil = (60 + thenMinute) - currentMinute
 
-    hoursUntil = 0
+    
     hoursUntil += (thenHour  - currentHour) # get hours until
 
     print ("You get off of work in :\n%d hours\n%d minutes\n%d seconds" % (hoursUntil, minutesUntil, secondsUntil))
