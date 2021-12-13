@@ -1,4 +1,4 @@
-# this program will countdown until you get off work/ school
+# this program will countdown until you get off work/ school today
 
 from datetime import datetime
 
@@ -10,8 +10,6 @@ currentMinute = int(currentTime[3] + currentTime[4])
 currentSecond = int (currentTime[6] + currentTime[7])
 
 print ("Current time : %d:%d:%d" % (currentHour, currentMinute, currentSecond))
-
-#selection = int(input("Select from the following menu:\n 1 : how much time until I get off work\n 2 : how much time until I get out of school"))
 
 
 thenTime = input("What time do you get off work ? (in standard time hh/mm)")
@@ -29,19 +27,28 @@ print ("Time to get off work in standard time : %d: %d " % (thenHour, thenMinute
 if amOrPm == '2':
     thenHour += 12 # converts into military time 
 
-print ("Time to get off work in military time : %d: %d " % (thenHour, thenMinute)) # now in military time
 
-secondsUntil = 60 - currentSecond # get seconds until
 
-if (thenMinute > currentSecond):  # get minutes until
-    minutesUntil = thenMinute - currentSecond
-if (thenMinute < currentSecond):
-    hoursUntil = -1
-    minutesUntil = (60 + thenMinute) - currentMinute
+def todayCountDown(thenHour, thenMinute):
+    secondsUntil = 60 - currentSecond # get seconds until
 
-hoursUntil += (thenHour  - currentHour) # get hours until
+    if (thenMinute > currentMinute):  # get minutes until
+        minutesUntil = thenMinute - currentSecond
+    if (thenMinute == currentMinute):
+        minutesUntil = 0
+    if (thenMinute < currentMinute):
+        hoursUntil = -1
+        minutesUntil = (60 + thenMinute) - currentMinute
 
-print ("This is how long until you get out : %d:%d:%d " % (hoursUntil, minutesUntil, secondsUntil))
+    hoursUntil = 0
+    hoursUntil += (thenHour  - currentHour) # get hours until
+
+    print ("You get off of work in :\n%d hours\n%d minutes\n%d seconds" % (hoursUntil, minutesUntil, secondsUntil))
+
+    
+todayCountDown(thenHour, thenMinute)
+
+
 
 
 
