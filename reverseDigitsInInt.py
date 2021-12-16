@@ -2,8 +2,6 @@
 # dont include zeros
 # if x = 0, return 0
 
-from os import X_OK
-
 
 x = 120
 y = 0
