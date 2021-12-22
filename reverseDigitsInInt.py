@@ -1,62 +1,24 @@
-# program to reverse digits in an int
-# dont include zeros
-# if x = 0, return 0
+# reverse integer
+
+x = 1534236469
 
 
-x = 120
-y = 0
+def reverseInt(x) -> int:
+    if x < 0: # if negative
+        negative = True
+        x = abs(x) # get abs (take away negative sign)
+    else: # if positive
+        negative = False
 
-print(x)
+    x = str(x) # convert to string
 
+    x = x[:: -1] # reverse string
 
-def reverseNum(x):
-    if x == 0:
-        return 0
-    size = 0
-    y = abs(x)
-    while y != 0:
-        y = y// 10
-        size +=1 # size will hold the number of digits in tht int
+    x = int(x) # convert back to an int
 
-    i = -1
-    count = 0
-    if abs(x) != x: # if number is negative
-        x = str(x) # convert to string for easier manipulating
-        while count < size:
-            if x[i] == 0: # dont include 0
-                i -= 1
-            if count == 0:
-                strX = '-' # attach the - sign at the front
-                strX += ''.join(x[i]) # join elements in reverse order
-                count += 1
-                i -= 1
-            else:
-                strX += ''.join(x[i]) # join elements in reverse order
-                count += 1
-                i -= 1
-    else: # if number is positive
-        x = str(x) # convert to string for easier manipulating
-        while count < size:
-            if x[i] == 0:
-                i -= 1 # dont inlcude 0
-            if count == 0:
-                strX = ''.join(x[i]) # join elements in reverse order
-                count += 1
-                i -= 1
-            else:
-                strX += ''.join(x[i]) # join elements in reverse order
-                count += 1
-                i -= 1
-    return int(strX) # return reversed int
-    
+    if negative == True: # if original value was negative
+        x = 0 - x # get negative equivalent of reversed value
 
-    
-strX = reverseNum(x)
+    return (x)
 
-print(strX)
-
-
-
-
-
-
+print (reverseInt(x))
