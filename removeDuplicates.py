@@ -8,14 +8,14 @@ def removeDuplicates(nums):
     i = 0
 
     while i < k:
-        look4 = nums[i]
+        look4 = nums[i] # value to search for
         k = len(nums) # update length 
-        if nums.count(look4) > 1:
-            nums.remove(look4)
+        if nums.count(look4) > 1: # if more than one of the same value is found
+            nums.remove(look4) # remove it
         else:
-            i += 1
+            i += 1 # move to the next index
 
     k = len(nums) # update length
-    return k
+    return k # return the length of the array after removing duplicates
 
 removeDuplicates(nums)
