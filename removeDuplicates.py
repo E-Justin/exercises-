@@ -19,3 +19,6 @@ def removeDuplicates(nums):
     return k # return the length of the array after removing duplicates
 
 removeDuplicates(nums)
+
+# Runtime: 2652 ms
+# Memory Usage: 14.5 MB
