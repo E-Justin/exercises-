@@ -5,7 +5,7 @@ def sort(toSort):
     j = 1
     length = len(toSort) # get length of list
 
-    while i < length: #! while i is in range
+    while i in range(length): #! while i is in range
         
         if toSort[i] > toSort[j]: #! if words are not in order
             toSort[i], toSort[j] = toSort[j], toSort[i] # swap positions
@@ -16,7 +16,7 @@ def sort(toSort):
             i += 1 # move to next position
             j = i + 1 # set j to the next word (after i)
         if i == length -1: #! if i has reached the last word
-            break # exit loop
+            break
     
     print(toSort)
 
