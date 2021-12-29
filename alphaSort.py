@@ -1,29 +1,25 @@
-# sort an array of chars in alphabetical order without using library function
+words = ['zebra', 'apple' , 'corn', 'squash', 'banana', 'dill pickle', 'azle ']
 
-unSorted = ["z", "h", "b", "k", "a", "q", "s", "o"]
+def sort(toSort):
+    i = 0
+    j = 1
+    length = len(toSort) # get length of list
 
-def alphaSort(unSorted):
-    index = 0
-    check = 1
-    length = len(unSorted)
-    insert = 0
+    while i < length: #! while i is in range
+        
+        if toSort[i] > toSort[j]: #! if words are not in order
+            toSort[i], toSort[j] = toSort[j], toSort[i] # swap positions
+            
+        j += 1 # move to next position
+        
+        if j == length: #! if j has reached outside of range
+            i += 1 # move to next position
+            j = i + 1 # set j to the next word (after i)
+        if i == length -1: #! if i has reached the last word
+            break # exit loop
+    
+    print(toSort)
 
-    while index < length and check < length:
-        if unSorted[index] > unSorted[check]:
-            before = unSorted[check]
-            after = unSorted[index]
-            unSorted[index] = before
-            unSorted[check] = after
-        check += 1
-        if check == length:
-            index += 1
-            check = index +1
-            insert += 1
-    return unSorted 
+sort(words)
 
-alphaSort(unSorted)
-
-index = 0
-while index < len(unSorted):
-    print (unSorted[index])
-    index += 1
+        
