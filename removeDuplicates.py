@@ -27,6 +27,8 @@ removeDuplicates(nums)
 
 
 # or 
+
+# this one is faster
 def removeDuplicates2(numArray):
   k = len(numArray) # get length
   i = 1
@@ -41,4 +43,7 @@ def removeDuplicates2(numArray):
          j = i - 1 # increment j
         
   return k # return length
+ 
+# Runtime: 208 ms
+# Memory Usage: 14.5 MB
   
