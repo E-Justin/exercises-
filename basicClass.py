@@ -1,35 +1,50 @@
-class Employee:
-    #constructor
-    def __init__(self, first, last, pay, employeeNumber):
-        self.first = first
-        self.last = last
-        self.pay = pay
-        self.employeeNumber = employeeNumber
-        #self.email = ('%s.%s.%s@yourCompany.com' % (last,first,employeeNumber))
-        self.email = (last + '.' + first + str(employeeNumber) + '@yourCompany.com')
+
+class StudentInfo:
     
-    # class method to get full name of employee
+    
+    # constructor
+    def __init__ (self, first, last, gpa, idNumber):
+        self.first = first 
+        self. last = last
+        self.gpa = gpa
+        self.idNumber = idNumber
+        self.district = "alvaradoISD" # initiated district with a string value
+        self.email = (first + '.' + last + str(idNumber) + '@' + self.district + '.net')
+
+        
+    # class method to get full name
     def fullName(self):
-        return ('{} {}'.format(self.first, self.last))
+        return ('{} {}'.format(self.first, self.last) )
 
-# must initialize them in order this way
-employee_1 = Employee('Jon', 'Doe', 75000, 12345)
-
-#employee_1.first = 'Jon'
-#employee_1. last = 'Doe'
-#employee_1.pay = 75000
-#employee_1.employeeNumber = 1234f
+    
 
 
+Student_1 = StudentInfo # class instance
+Student_2 = StudentInfo ('Jon', 'Doe', 3.75, 246810) # class instance with values automatically initiated
+# or 
+# Student_2.first = 'Jon'
+# Student_2.last = 'Doe"
+# Student_2.gpa = 3.75
+# Student_2.idNumber = 246810
+
+# method to have user input student info
+def getInfo(classInstance):
+    classInstance.first = input("What is your first name? ")
+    classInstance.last = input("What is your last name? ")
+    classInstance.gpa = input("What is your GPA? ")
+    classInstance.idNumber = input("What is your school id  number? ")
+
+# method to print student info
+def printInfo(classInstance):
+    print("First name ..... %s" % (classInstance.first))
+    print("Last name ..... %s" % (classInstance.last))
+    print("GPA ........... %s" % (str(classInstance.gpa)))
+    print("ID Number ..... %s" % (str(classInstance.idNumber)))
+    print("Email ......... %s" % (classInstance.email))
 
 
-def printItems(classInstance):
-    print('First Name........... %s' % (classInstance.first))
-    print('Last Name............ %s' % (classInstance.last))
-    print('Pay.................. %s' % (classInstance.pay))
-    print('Employee Number ..... %d' % (classInstance.employeeNumber))
-    print('Email ............... %s' % (classInstance.email))
+    
+print(Student_2.fullName())
 
-printItems(employee_1)
-print(employee_1.fullName())
+printInfo(Student_2)
 
