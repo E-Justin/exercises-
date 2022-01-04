@@ -1,28 +1,28 @@
-class linkedListNode:
-    def __init__(self, value, nextNode = None):
+class LinkedListNode:
+    def __init__ (self, value, nextNode = None):
         self.value = value
         self.nextNode = nextNode
 
 
-# 1, 2, 3
-
-node1 = linkedListNode("1") # initialize with value
-node2 = linkedListNode("2") # initialize with value
-node3 = linkedListNode("3") # initialize with value
-node4 = linkedListNode("4") # initialize with value
-
-node1.nextNode = node2 # set nextNode to point to the next node
-node2.nextNode = node3 # set nextNode to point to the next node
-node3.nextNode = node4 # set nextNode to point to the next node
+#initialize nodes
+node1 = LinkedListNode("1")
+node2 = LinkedListNode("2")
+node3 = LinkedListNode("3")
+node4 = LinkedListNode("4")
 
 
-currentNode = node1 # starting point at the beginning of the linked list
+node1.nextNode = node2 # link node 1 to node 2
+node2.nextNode = node3 # link node 2 to node 3
+node3.nextNode = node4 # link node 3 to node 4
+
+currentNode = node1
 
 while True:
-    print(currentNode.value , '->')
-    currentNode = currentNode.nextNode # move to the next node
-     
-    if currentNode is None: # if the end of the list has been reached
-        print ("None") 
+    print(currentNode.value, "->")
+    currentNode = currentNode.nextNode # move to next node
+    if currentNode == None: # if it has reached the end of the list
+        print("None") # it points to nothing
         break # exit loop
-    
+
+
+
