@@ -29,3 +29,21 @@ while i < length:
 def reverseString2(str):
     str = str[::-1]
     return str
+
+# or .......
+def reverseTheArray(arr):
+    length = len(arr)
+    half = length // 2
+
+    front = 0
+    back = -1
+
+    while front < half:
+        arr[front], arr[back] = arr[back], arr[front]
+        front += 1
+        back -= 1
+    
+    return arr
+
+# runtime: 203 ms
+# memory usage: 21.2MB
