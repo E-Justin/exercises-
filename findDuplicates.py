@@ -1,32 +1,24 @@
-# Given an integer array nums, return true if any 
-# value appears at least twice in the array, and return false if every element is distinct.
+# Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
-nums = [1,1,1,3,3,4,3,2,4,2]
 
-def duplicates(nums):
+
+def findDuplicates(nums):
+    nums = sorted(nums) # sort array
+
     length = len(nums) # get length
-    nums.sort() # sort in ascending order
 
     i = 1
-    duplicates = False # set duplicates to False
+    j = 0
+    duplicateFound = False
 
-    while i < length and duplicates == False: 
-        if nums[i] == nums[i -1]: # if duplicate is found
-            duplicates = True
-            break
+    while i < length: # while i is less than the length
+        if nums[i] == nums[j]: # if a duplcate is found
+            duplicateFound = True # set to True
+            break # exit loop
         else:
-            i += 1
-        if i == length: # if i has reached outside the available index
-            duplicates = False
+            i += 1 # increment index variables
+            j += 1
+    return duplicateFound
 
-    return duplicates
-
-print(duplicates(nums))
-   
-    
-
-
-
-
-
-
+# Runtime: 614 ms
+# Memory Usage: 22.5 MB
