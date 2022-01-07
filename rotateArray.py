@@ -8,13 +8,14 @@ nums = [1,2,3,4,5,6,7]
 k = 3
 
 
-def rotateArray(nums, k):
-    i = 0 
+def rotateArrayToRight(times, arr):
+    for i in range(times):
+        toMove = arr[-1]
+        arr.pop(-1)
+        arr.insert(0, toMove)
+    return arr
 
-    while i < k:
-        toMove = nums[-1] # stores the value to move
-        nums.pop() # removes last element from array
-        nums.insert(0, toMove) # inserts the value that was removed to the front of the array
-        i += 1
+
+rotateArrayToRight(k, nums)
 
    
