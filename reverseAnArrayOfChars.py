@@ -23,3 +23,9 @@ i = 0
 while i < length:
     print(s[i])
     i += 1
+    
+# or .........
+
+def reverseString2(str):
+    str = str[::-1]
+    return str
