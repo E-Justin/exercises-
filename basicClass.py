@@ -1,12 +1,10 @@
-
 class StudentInfo:
     
     
     # constructor
-    def __init__ (self, first, last, gpa, idNumber):
+    def __init__ (self, first, last, idNumber):
         self.first = first 
         self. last = last
-        self.gpa = gpa
         self.idNumber = idNumber
         self.district = "alvaradoISD" # initiated district with a string value
         self.email = (first + '.' + last + str(idNumber) + '@' + self.district + '.net')
@@ -15,7 +13,20 @@ class StudentInfo:
     # class method to get full name
     def fullName(self):
         return ('{} {}'.format(self.first, self.last) )
+    
+    def printInfo(self):
+        print("First name ..... %s" % (self.first))
+        print("Last name ..... %s" % (self.last))
+        print("GPA ........... %s" % (str(self.gpa)))
+        print("ID Number ..... %s" % (str(self.idNumber)))
+        print("Email ......... %s" % (self.email))
+    
+    def setGrades(self):
+        self.gpa = str(input("What is your gpa"))
+        return self.gpa
 
+    def getGrades(self):
+        print(self, "'s gpa is : ", self.gpa)
     
 
 
@@ -28,23 +39,10 @@ Student_2 = StudentInfo ('Jon', 'Doe', 3.75, 246810) # class instance with value
 # Student_2.idNumber = 246810
 
 # method to have user input student info
-def getInfo(classInstance):
-    classInstance.first = input("What is your first name? ")
-    classInstance.last = input("What is your last name? ")
-    classInstance.gpa = input("What is your GPA? ")
-    classInstance.idNumber = input("What is your school id  number? ")
+
 
 # method to print student info
-def printInfo(classInstance):
-    print("First name ..... %s" % (classInstance.first))
-    print("Last name ..... %s" % (classInstance.last))
-    print("GPA ........... %s" % (str(classInstance.gpa)))
-    print("ID Number ..... %s" % (str(classInstance.idNumber)))
-    print("Email ......... %s" % (classInstance.email))
 
-
-    
 print(Student_2.fullName())
 
-printInfo(Student_2)
-
+Student_2.printInfo()
