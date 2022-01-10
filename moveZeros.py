@@ -19,8 +19,5 @@ def moveZeroes(nums):
 
 nums = moveZeroes(nums)
 
-length = len(nums)
-index = 0
-while index < length:
-    print (nums[index]) # prints elements of array one at a time
-    index += 1
+# Runtime: 1481 ms
+ #Memory Usage: 15 MB
