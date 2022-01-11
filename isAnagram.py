@@ -1,18 +1,34 @@
-# Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-s = "anagram"
-t = "margana"
+# return true if it is a valid anagram
 
+s = "rat" 
+t = "car"
 
 def isAnagram(s, t):
-    anagram = False # set boolean variable to false
-    reversed = s[::-1] # reverses s
-
-    if (t == reversed): # if it is an anagram
-        anagram = True
-    else: # if it is not an anagram
+    anagram = True
+    
+    # get lengths of both arguments
+    length1 = len(s) 
+    length2 = len(t)
+    
+    # if lengths are not the same
+    if length1 != length2:
         anagram = False
 
+    i = 0
+    
+    while i < length1 and anagram is True: # while i is in range and anagram is True
+        letter = s[i] # get the letter to look at
+        if s.count(letter) == t.count(letter): # if there are the same amount of this letter in each word
+            i += 1 # continue
+        else: # if there are different amounts of this letter in each word
+            anagram = False # set to false and exit the loop
+    
     return anagram
 
+anagram = isAnagram(s,t)
 
-print (isAnagram(s,t))
+print(anagram)
+
+# Runtime: 3880 ms
+# Memory Usage: 13.7 MB
+    
