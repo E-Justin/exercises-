@@ -1,48 +1,47 @@
 class StudentInfo:
-    
-    
-    # constructor
-    def __init__ (self, first, last, idNumber):
-        self.first = first 
-        self. last = last
-        self.idNumber = idNumber
-        self.district = "alvaradoISD" # initiated district with a string value
-        self.email = (first + '.' + last + str(idNumber) + '@' + self.district + '.net')
+    def __init__(self, first, last):
+        self.first = first
+        self.last = last
 
-        
-    # class method to get full name
     def fullName(self):
-        return ('{} {}'.format(self.first, self.last) )
+        return ('{} {}'.format(self.first, self.last))
+
+    def setIdNumber(self):
+        self.idNumber = (input("%s, what is your ID number? " % (self.first)))
     
-    def printInfo(self):
-        print("First name ..... %s" % (self.first))
-        print("Last name ..... %s" % (self.last))
-        print("GPA ........... %s" % (str(self.gpa)))
-        print("ID Number ..... %s" % (str(self.idNumber)))
-        print("Email ......... %s" % (self.email))
+    def getIdNumber(self):
+        return self.idNumber
+
+    def setEmail(self):
+        self.email = (self.last + '.'+ self.first[0] + self.idNumber + '@yourSchool.com')
     
     def setGrades(self):
-        self.gpa = str(input("What is your gpa"))
-        return self.gpa
-
-    def getGrades(self):
-        print(self, "'s gpa is : ", self.gpa)
+        i = 0
+        grade = int
+        self.grades = []
+        while grade :
+            grade = int(input("Please enter grade #%d " % (i + 1)))
+            self.grades.append(grade)
+            i += 1
+            proceed = str(input("Would you like to enter another grade? (y or n)"))
+    
+    
+    def printAllInfo(self):
+        print("First Name .... ", self.first)
+        print("Last Name ..... ", self.last)
+        print("ID Number ..... ", self.idNumber)
+        print("Email ......... ", self.email)
+    
     
 
 
-Student_1 = StudentInfo # class instance
-Student_2 = StudentInfo ('Jon', 'Doe', 3.75, 246810) # class instance with values automatically initiated
-# or 
-# Student_2.first = 'Jon'
-# Student_2.last = 'Doe"
-# Student_2.gpa = 3.75
-# Student_2.idNumber = 246810
+Student1 = StudentInfo('Jon', 'Doe')
 
-# method to have user input student info
+# Student1.setGrades()
+Student1.setIdNumber()
+Student1.setEmail()
+
+Student1.printAllInfo()
 
 
-# method to print student info
 
-print(Student_2.fullName())
-
-Student_2.printInfo()
