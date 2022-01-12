@@ -11,13 +11,13 @@ class Node:
             if data < self.data: # ! if the data to be added is less than the current node
                 if self.left is None: # ! if there is nothing in the left branch
                     self.left = Node(data) #insert data in the left branch
-                else:
-                    self.left.insert(data) # recursively check the left branches
+                else: #! if there is data in the left branch
+                    self.left.insert(data) # recursively check the left branches until data can be added
             elif data > self.data: # ! if data to be inserted is greater than the current node
                 if self.right is None: # ! if there is nothing in the right branch
-                    self.right = Node(data)
+                    self.right = Node(data) # insert data in the right branch
                 else: # ! if there is data in the right branch
-                    self.right.insert(data) 
+                    self.right.insert(data) # recursively check the right branches until data can be added
 
 root = Node('g')
 root.insert('c')
