@@ -18,6 +18,13 @@ class Node:
                     self.right = Node(data) # insert data in the right branch
                 else: # ! if there is data in the right branch
                     self.right.insert(data) # recursively check the right branches until data can be added
+                
+        def printTree(self):
+        if self.left: # if there is something in the left branch
+            self.left.printTree()
+        print(self.data) # print root
+        if self.right:# if there is something in the right branch
+            self.right.printTree() 
 
 root = Node('g')
 root.insert('c')
