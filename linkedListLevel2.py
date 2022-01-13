@@ -24,10 +24,12 @@ class LinkedList:
         return total
     # method to display list
     def display(self):
+        listArr = []
         currentNode = self.head
         while currentNode.next != None:
             currentNode = currentNode.next
-            print(currentNode.data)
+            listArr.append(currentNode.data)
+        print(listArr)
             
 
 List = LinkedList() # instantiate linked list
