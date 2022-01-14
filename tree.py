@@ -11,14 +11,14 @@ class Node:
         else: # if there is data in the tree
             if data < self.data: # if the data to be inserted is less than the current node
                 if self.left is None: # if there is nothing in the left branch
-                    self.left = Node(data)
+                    self.left = Node(data) # insert into left branch
                 else: # if there is data in the left branch
-                    self.left.insert(data)
+                    self.left.insert(data) # recursively check left branch until data can be added
             elif data > self.data: # if the data to be inserted is greater than the current node
                 if self.right is None: # if there is nothing in the right branch
-                    self.right = Node(data)
+                    self.right = Node(data) # insert data into right branch
                 else: # if there is data in the right branch
-                    self.right.insert(data)
+                    self.right.insert(data) # recursively check right branch until data can be added
                     
     # method to print tree
     def printTree(self):
