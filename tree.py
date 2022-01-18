@@ -27,6 +27,18 @@ class Node:
         print(self.data) # prints root
         if self.right: # if there is a right branch
             self.right.printTree() # prints right branch
+            
+    def findVal(self, data):
+        if data < self.data:
+            if self.left is None:
+                return( str(data) + " not found ")
+            return self.left.findVal(data)
+        elif data > self.data:
+            if self.right is None:
+                return( str(data) + " not found ")
+            return self.right.findVal(data)
+        else:
+            print(str(self.data) + " is found")
 
 myTree = Node(7) # create root
 
