@@ -32,11 +32,13 @@ class Node:
         if data < self.data:
             if self.left is None:
                 return( str(data) + " not found ")
-            return self.left.findVal(data)
+            else:
+                return self.left.findVal(data)
         elif data > self.data:
             if self.right is None:
                 return( str(data) + " not found ")
-            return self.right.findVal(data)
+            else:
+                return self.right.findVal(data)
         else:
             print(str(self.data) + " is found")
 
