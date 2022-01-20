@@ -7,13 +7,15 @@ class LinkedList:
     # constructor
     def __init__(self):
         self.head = Node()
+        
     # method to append a node to the list
     def append(self, data):
-        newNode = Node(data)
-        currentNode = self.head
-        while currentNode.next != None:
-            currentNode = currentNode.next
-        currentNode.next = newNode
+        newNode = Node(data) # create a new node with the given value
+        currentNode = self.head # start at the front of the list
+        while currentNode.next != None: # while the next node in line has a value
+            currentNode = currentNode.next # move to the next node
+        currentNode.next = newNode # place new node at the end of the list
+        
     # method to get length of list
     def length(self):
         currentNode = self.head
@@ -22,6 +24,7 @@ class LinkedList:
             total += 1
             currentNode = currentNode.next
         return total
+    
     # method to display list
     def display(self):
         listArr = []
