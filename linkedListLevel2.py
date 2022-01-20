@@ -1,12 +1,12 @@
 class Node:
     def __init__(self, data = None):
         self.data = data
-        self.next = None
+        self.next = None # set next to None (it does not exist yet)
 
 class LinkedList:
     # constructor
     def __init__(self):
-        self.head = Node()
+        self.head = Node() # create head Node
         
     # method to append a node to the list
     def append(self, data):
