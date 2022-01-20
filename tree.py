@@ -41,7 +41,7 @@ class Node:
             else: # if there is something in the right branch
                 return self.right.findVal(data) # recursively keep searching
         else: # if the value was found
-            print(str(self.data) + " is found") # print out that the value was found
+            print(str(self.data) + " has been found") # print out that the value was found
 
 myTree = Node(7) # create root
 
