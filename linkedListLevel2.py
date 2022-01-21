@@ -27,12 +27,12 @@ class LinkedList:
     
     # method to display list
     def display(self):
-        listArr = []
-        currentNode = self.head
-        while currentNode.next != None:
-            currentNode = currentNode.next
-            listArr.append(currentNode.data)
-        print(listArr)
+        listArr = [] # create empty array to hold each of the items in the list
+        currentNode = self.head # start at the front of the list
+        while currentNode.next != None: # while the next node has something in it
+            currentNode = currentNode.next # move node over one
+            listArr.append(currentNode.data) # append array with each item in the list
+        print(listArr) # print list
             
 
 List = LinkedList() # instantiate linked list
