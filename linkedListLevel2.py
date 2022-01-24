@@ -12,7 +12,7 @@ class LinkedList:
     def append(self, data):
         newNode = Node(data) # create a new node with the given value
         currentNode = self.head # start at the front of the list
-        while currentNode.next != None: # while the next node in line has a value
+        while currentNode.next is not None: # while the next node in line has a value
             currentNode = currentNode.next # move to the next node
         currentNode.next = newNode # place new node at the end of the list
         
@@ -20,7 +20,7 @@ class LinkedList:
     def length(self):
         currentNode = self.head
         total = 0
-        while currentNode.next != None:
+        while currentNode.next is not None:
             total += 1
             currentNode = currentNode.next
         return total
@@ -29,7 +29,7 @@ class LinkedList:
     def display(self):
         listArr = [] # create empty array to hold each of the items in the list
         currentNode = self.head # start at the front of the list
-        while currentNode.next != None: # while the next node has something in it
+        while currentNode.next is not None: # while the next node has something in it
             currentNode = currentNode.next # move node over one
             listArr.append(currentNode.data) # append array with each item in the list
         print(listArr) # print list
