@@ -8,7 +8,7 @@ class LinkedList:
         self.head = Node()
     
     def append(self, data):
-        current = self.head
+        current = self.head 
         newNode = Node(data)
         while current.next is not None:
             current = current.next
@@ -31,12 +31,12 @@ class LinkedList:
         print(listArr)
     
     def findVal(self, data):
-        current = self.head
-        while current.next is not None:
-            current = current.next
-            if current.data == data:
-                return (str(data) + " was found ")
-        return (str(data) + " was NOT found ")
+        current = self.head # start at front of list
+        while current.next is not None: # while there is something there
+            current = current.next # move to next position
+            if current.data == data: # if we found the value we are looking for
+                return (str(data) + " was found ") # return that we found it
+        return (str(data) + " was NOT found ") # else: not found
 
 
     def deleteNode(self, data):
