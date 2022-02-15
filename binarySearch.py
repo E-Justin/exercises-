@@ -12,7 +12,7 @@ def binarySearchA(list, find):
             break
         else:
             if find < list[mid]: # if the value to be found is less than the current indexed value
-                last = mid - 1
+                last = mid - 1 # move mid towards the smaller numbers
             else: # if the value to be found is greater than the current indexed value
-                first = mid + 1
+                first = mid + 1 # move mid towards the larger numbers
     return found
