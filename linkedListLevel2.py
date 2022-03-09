@@ -39,30 +39,30 @@ class LinkedList:
         return (str(data) + " was NOT found ") # else: not found
 
 
-    def deleteNode(self, data):
-        temp = self.head # store head node
-
-        if temp is not None: # if head node is the value to be deleted
-            if temp.data == data:
-                self.head = temp.next
-                temp = None
-                return
-
-        # search for the value to be deleted and keep track of the 
-        # previous node as we need to change prev.next
-        while temp is not None:
-            if temp.data == data:
-                break
-            prev = temp
-            temp = temp.next
-
-        # if the value to be deleted does not exist in the list
-        if temp is None:
-            return 
+   def deleteNode1(self, data):
+        current = self.head
         
-        #unlink the node from linked list
-        prev.next = temp.next
-        temp = None
+        # if the head node is the one to be deleted
+        if current is not None:
+            if current.data == data:
+                self.head = current.next
+                current = None
+                return 
+        
+        # if the node to be deleted is in the middle somewhere
+        prev = None
+        while current is not None:
+            if current.data == data: # search through until value to be deleted is found
+                break
+            prev = current
+            current = current.next
+
+        # if there is nothing in the list/ if value is not in the list and current is pointing to None        
+        if current is None:
+            return None
+
+        prev.next = current.next
+        current = None
 
 
 List = LinkedList()
