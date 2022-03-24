@@ -38,6 +38,13 @@ class Node:
             if current.data == data: # if the value we are looking for has been found
                 return(str(data) + " : FOUND IT at index : " + str(index)) # return the value we are looking for and the index it is at
         return (str(data) + " : NOT HERE ") # if it was not found, return: not here
+    
+    def height(self, h = 0):
+        """ Height = how many levels there are from the root to the lowest leaf """
+        leftHeight = self.left.height(h + 1) if self.left else h
+        rightHeight = self.right.height(h + 1) if self.right else h
+        return max(leftHeight, rightHeight)
+    
 
 myTree = Node(7) # create root
 
