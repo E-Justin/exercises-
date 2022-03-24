@@ -28,20 +28,16 @@ class Node:
         if self.right: # if there is a right branch
             self.right.printTree() # prints right branch
     
-    # method to return if a value was found in the tree or not        
+    # method to return if a value was found in the tree or not and the index it was found    
     def findVal(self, data):
-        if data < self.data: # if the value we are looking for is less than the current node
-            if self.left is None: # if there is nothing in the left branch 
-                return( str(data) + " not found ") #return the value was not found
-            else: # if there is something in the left branch
-                return self.left.findVal(data) # recursively keep searching
-        elif data > self.data: # if the value we are looking for is greater than the current node
-            if self.right is None: # if there is nothing in the right branch
-                return( str(data) + " not found ") # return that the value was not found
-            else: # if there is something in the right branch
-                return self.right.findVal(data) # recursively keep searching
-        else: # if the value was found
-            print(str(self.data) + " has been found") # print out that the value was found
+        current = self.head # start at the front
+        index = -1
+        while current.next is not None: # while current.next is pointing to seomething
+            current = current.next # move to next position in the list
+            index += 1 # incrment index by 1
+            if current.data == data: # if the value we are looking for has been found
+                return(str(data) + " : FOUND IT at index : " + str(index)) # return the value we are looking for and the index it is at
+        return (str(data) + " : NOT HERE ") # if it was not found, return: not here
 
 myTree = Node(7) # create root
 
