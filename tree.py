@@ -30,14 +30,18 @@ class Node:
     
     # method to return if a value was found in the tree or not and the index it was found    
     def findVal(self, data):
-        current = self.head # start at the front
-        index = -1
-        while current.next is not None: # while current.next is pointing to seomething
-            current = current.next # move to next position in the list
-            index += 1 # incrment index by 1
-            if current.data == data: # if the value we are looking for has been found
-                return(str(data) + " : FOUND IT at index : " + str(index)) # return the value we are looking for and the index it is at
-        return (str(data) + " : NOT HERE ") # if it was not found, return: not here
+        if data < self.data: # if its value is less,
+            if self.left is None: # if nothing is there
+                print(str(data) + " : NOT HERE ")
+            else: # if there is data in the left branches
+                return (self.left.findVal(data)) # recursively check the left branches
+        elif data > self.data: # if its value is greater than
+            if self.right is None: # if there is nothing there
+                print(str(data) + " : NOT HERE ")
+            else: # if there is data in the right branches
+                return self.right.findVal(data) # recursively check right branches
+        else:
+            print(str(data) + " : FOUND IT ")
     
     def height(self, h = 0):
         """ Height = how many levels there are from the root to the lowest leaf """
