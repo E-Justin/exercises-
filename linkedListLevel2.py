@@ -13,6 +13,16 @@ class LinkedList:
         while current.next is not None: # while the end of the list has not been reached
             current = current.next # move to the next position
         current.next = newNode # when the end of the list has been reached, insert the newNode
+        
+    def prepend(self, data):
+        new_node = Node(data)
+        current_head = self.head  # current head
+
+        if current_head is None:  # if the list is empty
+            self.head = new_node  # set new node to head node
+        elif current_head is not None:  # if the list does have data in it
+            self.head = new_node  # set new node to the head node
+            self.head.next = current_head  # old head node becomes the second node in the list
     
     def length(self):
         current = self.head # start at the front
