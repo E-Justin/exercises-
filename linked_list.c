@@ -100,19 +100,35 @@ void remove_node(int data) {
 	} while (0);
 }
 
+int get_length() {
+	struct node* current = head;
+	int len = 0;
+
+	while (current) {
+		len++;
+		current = current->next;
+	}
+
+	return len;
+}
+
 
 int main() {
 
+	printf("Length = %d\n", get_length());
 	insert_at_end(1);
 	insert_at_end(2);
 	insert_at_end(3);
 	insert_at_front(4);
+
+	printf("Length = %d\n", get_length());
 
 	display();
 
 	remove_node(4);
 	remove_node(2);
 
+	printf("Length = %d\n", get_length());
 	display();
 
 
